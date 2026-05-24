@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ album.title }}</title>
+</head>
+<body>
+
+    <h1>{{ album.title }}</h1>
+    <p>{{ album.description }}</p>
+
+    <a href="/album/{{ album.id }}/add-photo/">Add Photo</a>
+    <a href="/">Back</a>
+
+    <hr>
+
+    {% for photo in album.photos.all %}
+        <div>
+            <img src="{{ photo.image.url }}" width="300">
+            <p>{{ photo.caption }}</p>
+        </div>
+    {% empty %}
+        <p>No photos yet.</p>
+    {% endfor %}
+
+</body>
+</html>
